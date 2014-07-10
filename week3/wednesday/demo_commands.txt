@@ -1,0 +1,61 @@
+  496  ls
+  497  clear
+  498  pwd
+  499  ls
+  500  cd Desktop/
+  501  cd ..
+  502  cd Desktop/
+  503  ls
+  505  mkdir pdx
+  506  cd pdx
+  507  ls
+  508  ls -l
+  510  ls -la
+  511  cd .
+  512  echo foo
+  513  echo foo | sort
+  514  echo hello > index.html
+  515  ls
+  516  ls -la
+  517  cat index.html
+  518  echo world >> index.html
+  519  ls -la
+  520  cat index.html 
+  521  echo apple >> index.html 
+  522  cat index.html 
+  523  cat index.html | sort
+  525  cat index.html | sort >> index.html 
+  527  cat index.html | uniq
+  528  cat index.html | sort | uniq
+  529  cat index.html | sort | uniq > index.html 
+  537  clear
+  538  pico index.html 
+  540  ls -la
+  542  open index.html
+  544  pico page.py
+  545  python page.py 
+  550  python page.py > demo.html
+  557  ifconfig
+  558  cat /etc/hosts
+  562  nslookup amazon.com
+  569  ps
+  570  ps -a
+  573  ps -ax
+  574  echo foo bar | wc
+  575  ps -ax | wc
+  576  ps -ax | grep http
+  579  cat index.html | grep cc
+  580  cat index.html | grep "/"
+  584  history
+  588  man ps
+  589  ls --help
+  594  cd /etc
+  597  cd apache2/
+  601  grep -ri PHP *
+  602  grep -ri LoadModule *
+  603  grep -ri LoadModule * | grep -i perl
+  606  grep -ri addtype *
+  607  date
+  608  history
+  610  cd ~
+  611  history > demo_commands.txt
