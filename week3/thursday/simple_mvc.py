@@ -22,9 +22,8 @@ class View(object):
         for item in self.model.objects:
             item_template = self.template
             for field in self.model.fields:
-                # output += field
                 if item.has_key(field):
-                    item_template = item_template.replace("{" + field + "}", item[field])
+                    item_template = item_template.replace("{{" + field + "}}", item[field])
             output += item_template
         return output
 
@@ -35,7 +34,7 @@ class Controller(object):
         self.routes = {}
 
     def route(self, path):
-        return map[path].view.render()
+        return self.routes[path].render()
 
 
 # CONTAINS THE SINGLE CONTROLLER AND ALL MODEL AND VIEW INSTANCES
@@ -52,14 +51,16 @@ app = Application()
 app.models["user"] = Model("user", ["name", "score"])
 app.models["game"] = Model("game", ["game_name", "description"])
 
-#load model objects form database tables
+# load model objects form database tables
 app.models["user"].objects = [
     {"name": "Bob", "score": "9"},
     {"name": "Carol", "score": "11"},
     {"name": "Ted", "score": "15"},
-    {"name": "Alice", "score": "13"}
-]
+    {"name": "Alice", "score": "13"}]
 
-page = View("\nHello {name}, your score is {score}.\n", app.models["user"])
+app.controller.routes = {
+    "/scores/": View("\nHello <em>{{name}}</em>, your score is <strong>{{score}}</strong>.<br>\n", app.models["user"])
+}
 
-print page.render()
+request_path = "/scores/"
+print app.controller.route(request_path)
