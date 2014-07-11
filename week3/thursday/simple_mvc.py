@@ -19,12 +19,14 @@ class View(object):
 
     def render(self):
         output = ""
-        for item in self.model:
+        for item in self.model.objects:
             item_template = self.template
-            for field in item:
-                output += field
-                # item_template.replace()
+            for field in self.model.fields:
+                # output += field
+                if item.has_key(field):
+                    item_template = item_template.replace("{" + field + "}", item[field])
             output += item_template
+        return output
 
 
 # CONTROLLER: Routes messages
@@ -46,16 +48,18 @@ class Application():
 # CREATE AN APPLICATION INSTANCE
 app = Application()
 
-app.models.append("user", ["user_name", "date_of_birth"])
-app.models.append("game", ["game_name", "description"])
+# define models (
+app.models["user"] = Model("user", ["name", "score"])
+app.models["game"] = Model("game", ["game_name", "description"])
 
+#load model objects form database tables
 app.models["user"].objects = [
-    {"name": "Bob", "score": "0"},
-    {"name": "Carol", "score": "0"},
-    {"name": "Ted", "score": "0"},
-    {"name": "Alice", "score": "0"}
+    {"name": "Bob", "score": "9"},
+    {"name": "Carol", "score": "11"},
+    {"name": "Ted", "score": "15"},
+    {"name": "Alice", "score": "13"}
 ]
 
+page = View("\nHello {name}, your score is {score}.\n", app.models["user"])
 
-page = View("model")
-
+print page.render()

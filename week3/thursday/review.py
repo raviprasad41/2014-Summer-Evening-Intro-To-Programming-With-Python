@@ -110,6 +110,8 @@ class Group(list):
 g = Group()
 
 p = Person("Kevin", "Long")
+print p.first_name
+
 g.append(p)
 
 g.append(Person("Ashley", "Ford"))
