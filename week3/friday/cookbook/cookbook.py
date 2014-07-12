@@ -6,10 +6,6 @@ class Recipe(object):
         self.ingredients = IngredientList()
         self.steps = StepList()
 
-
-        self.foo = {}
-        self.foo = dict()
-
     def render(self):
         output = []
         output.append(self.name_of_recipe)
