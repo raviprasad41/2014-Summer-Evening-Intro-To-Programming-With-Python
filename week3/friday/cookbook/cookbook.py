@@ -35,12 +35,12 @@ class RecipeIngredient():
         self.ingredient = ingredient
 
     def render(self):
-        output = []
-        output.append(str(self.amount))
-        output.append(self.measure.name)
-        output.append(self.ingredient.name)
-        return " ".join(output)
-        # return self.template % str(self.amount), self.measure.name, self.ingredient.name
+        # output = []
+        # output.append(str(self.amount))
+        # output.append(self.measure.name)
+        # output.append(self.ingredient.name)
+        #return " ".join(output)
+        return self.template % (str(self.amount), self.measure.name, self.ingredient.name)
 
 
 class RecipeStep():
