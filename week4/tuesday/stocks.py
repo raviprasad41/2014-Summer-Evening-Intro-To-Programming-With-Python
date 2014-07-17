@@ -1,9 +1,11 @@
-#BASELINE STOCK PRICE LISTING APPLICATION
+# BASELINE STOCK PRICE LISTING APPLICATION
+
 
 class Stock():
     def __init__(self, ticker_symbol):
         self.ticker_symbol = ticker_symbol
         self.historical_quotes = []
+
     def moving_average(self):
         pass
 
@@ -16,19 +18,26 @@ class Quote():
 
 class StocksModel():
     stocks = {}
+
     def load(self, data):
+
         for record in data:
             date = record[0]
             symbol = record[1]
             price = record[2]
+
             if not self.stocks.has_key(symbol):
                 self.stocks[symbol] = Stock(symbol)
+
             stock = self.stocks[symbol]
-            stock.historical_quotes.append( Quote(price, date) )
+            quote = Quote(price, date)
+            stock.historical_quotes.append(quote)
 
 
 class StocksView():
-    def render(self,stocks):
+
+    def render(self, stocks):
+
         for k in stocks.keys():
             print k
             v = stocks[k]
@@ -37,16 +46,16 @@ class StocksView():
                 #HOW CAN WE PRINT THE DIFFERENCE BETWEEN THIS PRICE AND THE PREVIOUS PRICE
                 print q.quote_date + " " + str(q.closing_price)
 
-
+# RAW TEST DATA
 test_data = [
-    ["2014-06-01", "APPL",100.11],
-    ["2014-06-02", "APPL",110.61],
-    ["2014-06-03", "APPL",120.22],
-    ["2014-06-04", "APPL",100.54],
-    ["2014-06-01", "ATT",20.46],
-    ["2014-06-02", "ATT",21.25],
-    ["2014-06-03", "ATT",32.53],
-    ["2014-06-04", "ATT",40.71],
+    ["2014-06-01", "APPL", 100.11],
+    ["2014-06-02", "APPL", 110.61],
+    ["2014-06-03", "APPL", 120.22],
+    ["2014-06-04", "APPL", 100.54],
+    ["2014-06-01", "MSFT", 20.46],
+    ["2014-06-02", "MSFT", 21.25],
+    ["2014-06-03", "MSFT", 32.53],
+    ["2014-06-04", "MSFT", 40.71],
 ]
 
 model = StocksModel()
