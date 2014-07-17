@@ -26,7 +26,7 @@ class IngredientList(RecipePartList):
 class StepList(RecipePartList):
     pass
 
-class RecipeIngredient():
+class RecipeIngredient(object):
     template = "     -  %s %s of %s"
 
     def __init__(self, amount, measure, ingredient):
@@ -43,7 +43,7 @@ class RecipeIngredient():
         return self.template % (str(self.amount), self.measure.name, self.ingredient.name)
 
 
-class RecipeStep():
+class RecipeStep(object):
     def __init__(self, step_description):
         self.step_description = step_description
 
@@ -51,12 +51,12 @@ class RecipeStep():
         return self.step_description
 
 
-class Ingredient():
+class Ingredient(object):
     def __init__(self, name):
         self.name = name
 
 
-class Measure():
+class Measure(object):
     def __init__(self, name):
         self.name = name
 
