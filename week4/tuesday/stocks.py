@@ -41,10 +41,32 @@ class StocksView():
         for k in stocks.keys():
             print k
             v = stocks[k]
-
+            previous = None
+            prices = []
             for q in v.historical_quotes:
                 #HOW CAN WE PRINT THE DIFFERENCE BETWEEN THIS PRICE AND THE PREVIOUS PRICE
-                print q.quote_date + " " + str(q.closing_price)
+                prices.append(q.closing_price)
+
+                if not previous == None:
+                    delta = q.closing_price - previous
+                else:
+                    delta = 0
+
+                if delta > 0:
+                    arrow = "^"
+                elif delta < 0:
+                    arrow = "v"
+                else:
+                    arrow = "="
+
+                print q.quote_date + " " + str(q.closing_price) + " " + arrow + " " + str(delta)
+                previous = q.closing_price
+
+            avg = sum(prices) / len(v.historical_quotes)
+
+            print "historical average: %.3f" % avg
+
+
 
 # RAW TEST DATA
 test_data = [
