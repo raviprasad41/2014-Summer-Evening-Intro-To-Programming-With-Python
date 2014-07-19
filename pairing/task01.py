@@ -1,4 +1,4 @@
-#GIVEN THE FOLLOWING LIST OF DICTIONARY OBJECTS
+#GIVEN THE FOLLOWING LIST OF LIST
 test_data = [
     ["2014-06-01", "APPL", 100.11],
     ["2014-06-02", "APPL", 110.61],
@@ -10,9 +10,10 @@ test_data = [
     ["2014-06-04", "MSFT", 40.71],
 ]
 
-#CREATE TWO NEW DICTIONARIES ONE FOR EACH STOCK TICKER SYMBOL e.g. APPL and MSFT
+#CREATE TWO NEW LISTS ONE FOR EACH STOCK TICKER SYMBOL e.g. APPL and MSFT
 
 appl = []
 
 msft = []
 
+#ONCE THAT WORKS THEN what would need to change to copy with an unknown number of stock ticker symbols?
