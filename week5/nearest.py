@@ -21,7 +21,8 @@ def distance(p1, p2):
 
 letter_dict = {}
 for d in data:
-    letter_dict[d[2]] = d
+    letter = d[2]
+    letter_dict[ letter ] = d
 
 # for arbitrary value e.g. "J" find the nearest N items e.g. 5
 def get_top(letter, top_n):
@@ -32,7 +33,7 @@ def get_top(letter, top_n):
     return s[0:top_n + 1]
 
 
-top = get_top("J", 5)
+top = get_top("V", 5)
 f = open("positions.html", "w")
 f.write(style)
 f.write('<div id="box" style="width:{0}px;height:{0}px;">\n'.format(square_size))
@@ -41,6 +42,6 @@ for item in data:
         c = "color:yellow;"
     else:
         c = ""
-    f.write('<span style="left:{x}px; top:{y}px;{c}"> {v} </span>'.format(x=item[0], y=item[1], v=item[2], c=c))
+    f.write('<span style="left:{left}px; top:{y}px;{c}"> {v} </span>'.format(left=item[0], y=item[1], v=item[2], c=c))
 f.write("</div>\n")
 f.close()
