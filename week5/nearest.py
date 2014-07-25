@@ -43,5 +43,5 @@ for item in data:
     else:
         c = ""
     f.write('<span style="left:{left}px; top:{y}px;{c}"> {v} </span>'.format(left=item[0], y=item[1], v=item[2], c=c))
-f.write("</div>\n")
+
 f.close()
