@@ -21,7 +21,8 @@
 
     var insects = document.getElementsByClassName("insect");
 
-    var insects = $(".insect");
+    //jquery would be like this
+    //var insects = $(".insect");
 
     function nextCycle() {
         for (var i = 0; i < insects.length; i++) {
@@ -30,9 +31,13 @@
             var y = parseInt(Math.random() * window.innerHeight, 10);
             s.style.transform = "translate3d(" + x + "px, " + y + "px, 0)";
         }
+        //Now that we are done we should call oursleves back after one second.
         setTimeout(nextCycle, 1000);
     }
-    setTimeout(nextCycle, 1000);
+
+    //make initial call to nextCycle to get things started
+    nextCycle();
+
 </script>
 </body>
 </html>
