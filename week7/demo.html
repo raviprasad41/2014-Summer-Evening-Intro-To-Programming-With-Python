@@ -3,13 +3,24 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
+    <!--<script src="jquery.js"></script>-->
+    <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
     <script>
         function scrolling(event){
             var target = document.getElementById("header");
             target.innerHTML = window.pageYOffset;
 
-
             //TODO move tortoise and hare as you scroll
+
+            var tortoise = document.getElementById("tortoise");
+            tortoise.style.top = window.pageYOffset / 8 + "px";
+
+            //HARE with Jquery
+            //("#hare")[0].style.top = window.pageYOffset / 4 + "px";
+
+            //HARE without Jquery
+            var hare = document.getElementById("hare");
+            hare.style.top = window.pageYOffset / 4 + "px";
         }
         window.onscroll = scrolling;
     </script>
