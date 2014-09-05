@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body {
+            background-color: darkolivegreen;
+            font-family: sans-serif;
+            font-size: 100%;
+            line-height: 100%;
+            margin: 0;
+            padding: 2%;
+            box-sizing: border-box;
+        }
+
+        .word {
+            display: inline-block;
+            box-sizing: border-box;
+
+            min-width: 50px;
+            min-height: 25px;
+            background-color: darkgrey;
+            color: lightslategrey;
+            text-align: center;
+            padding: 5px;
+        }
+
+        .eventList li {
+            list-style-type: none;
+            display: inline-block;
+        }
+
+        .eventList li {
+        {#            display: inline-block;#} float: left;
+            margin: 18px;
+            box-sizing: border-box;
+
+            width: 300px;
+            height: 200px;
+            background-color: darkblue;
+            text-align: center;
+            padding-top: 40px;
+        }
+
+        .eventList li a {
+            color: yellow;
+            text-decoration: none;
+        }
+
+        .wordList label, h1, h2, h3, h4 {
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            -o-user-select: none;
+        }
+
+    </style>
+</head>
+<body>
+<h1>
+    Demo App List of Events
+</h1>
+
+<h3>
+    Filter to include:
+</h3>
+
+<div id="filters">
+
+    <form id="filter_form" method="post">
+        <div class="wordList">
+            {% for w in words %}
+                <input id="w{{ w.id }}" name="w{{ w.id }}" type="checkbox" class="word" value="{{ w.word }}">
+                <label for="w{{ w.id }}">
+                    {{ w.word }}
+                </label>
+                <br>
+            {% endfor %}
+        </div>
+        <input type="submit" value="APPLY">
+        {% csrf_token %}
+    </form>
+</div>
+
+<h3>
+    Results
+</h3>
+<ul class="eventList">
+    {% for event in events %}
+        <li>
+            <a href="/events/{{ event.id }}/">
+                <h1>
+                    {{ event.title }}
+                </h1>
+
+                <h2>
+                    {{ event.summary }}
+                </h2>
+                    <span>
+                        {{ event.description }}
+                    </span>
+            </a>
+        </li>
+    {% endfor %}
+
+    {% for k, m in matches.items %}
+        <br>
+        <h1>WORD: {{ k }}</h1>
+        {#        key:{{ k }}#}
+        {% for event in m %}
+            <li>
+                <a href="/events/{{ event.id }}/">
+                    <h1>
+                        {{ event.title }}
+                    </h1>
+
+                    <h2>
+                        {{ event.summary }}
+                    </h2>
+                    <span>
+                        {{ event.description }}
+                    </span>
+                </a>
+            </li>
+        {% endfor %}
+    {% endfor %}
+</ul>
+</body>
+</html>

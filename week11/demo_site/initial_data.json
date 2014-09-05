@@ -1,0 +1,70 @@
+[
+    {
+        "pk": 1,
+        "model": "demo_app.event",
+        "fields": {
+            "to_date_time": "2014-09-04T23:16:32Z",
+            "from_date_time": "2014-09-04T23:16:30Z",
+            "summary": "my summary",
+            "description": "my description has apples",
+            "title": "my title a"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "demo_app.event",
+        "fields": {
+            "to_date_time": "2014-09-04T23:16:32Z",
+            "from_date_time": "2014-09-04T23:16:30Z",
+            "summary": "my summary",
+            "description": "my description has oranges",
+            "title": "my title o"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "demo_app.event",
+        "fields": {
+            "to_date_time": "2014-09-04T23:16:32Z",
+            "from_date_time": "2014-09-04T23:16:30Z",
+            "summary": "my summary",
+            "description": "my description has apples and oranges",
+            "title": "my title a and o"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "demo_app.event",
+        "fields": {
+            "to_date_time": "2014-09-04T23:16:32Z",
+            "from_date_time": "2014-09-04T23:16:30Z",
+            "summary": "my summary",
+            "description": "my description has pineapples",
+            "title": "my title pa"
+        }
+    },
+    {
+        "pk": 1,
+        "model": "demo_app.keyword",
+        "fields": {
+            "word": "apple",
+            "user": 1
+        }
+    },
+    {
+        "pk": 2,
+        "model": "demo_app.keyword",
+        "fields": {
+            "word": "orange",
+            "user": 1
+        }
+    },
+    {
+        "pk": 3,
+        "model": "demo_app.keyword",
+        "fields": {
+            "word": "pair",
+            "user": 1
+        }
+    }
+]
