@@ -17,10 +17,19 @@ loose_change = [
     {"denomination":"nickel","year":"2014"},
     {"denomination":"nickel","year":"2014"},
     {"denomination":"dime","year":"2014"},
+    {"denomination":"dime","year":"2014"},
+    {"denomination":"dime","year":"2014"},
+    {"denomination":"dime","year":"2014"},
+    {"denomination":"dime","year":"2014"},
+    {"denomination":"dime","year":"2014"},
+    {"denomination":"dime","year":"2014"},
+    {"denomination":"dime","year":"2014"},
+    {"denomination":"dime","year":"2014"},
+    {"denomination":"dime","year":"2014"},
+    {"denomination":"dime","year":"2014"},
     {"denomination":"nickel","year":"2014"},
 ]
 # How many stacks of N units can we make for each denomination of coin?
-
 grouped = {}
 stack_limit = 4
 
@@ -38,4 +47,4 @@ for coin in loose_change:
 
 for denomination in grouped:
     stacks = grouped[denomination]
-    print(str(len(stacks)) + " of " + denomination)
+    print(str(len(stacks)) + " stack of " + denomination)
