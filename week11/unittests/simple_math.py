@@ -1,11 +1,13 @@
 __author__ = 'kevin'
-class SimpleMath():
 
-    def add(self, a, b):
-        return a + b
+def add( a, b):
+    return a + b
 
-    def total(self,number_list):
-        return sum(number_list)
+def total(number_list):
+    return sum(number_list)
 
 if __name__ == '__main__':
-    print SimpleMath.add(2, 5)
+    x = raw_input("x")
+    y = raw_input( "y")
+    print add(x, y)
+
