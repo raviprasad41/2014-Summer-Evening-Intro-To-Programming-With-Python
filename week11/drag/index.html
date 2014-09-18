@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .container, .box {
+            border: 1px solid black;
+        }
+
+        .box {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+    <script>
+        function loaded() {
+            function do_nothing(event) {
+//                console.log(event);
+
+                event.preventDefault();
+                return false;
+            }
+
+            function drag_start(event) {
+                console.log(event);
+                window.drag_item = event.target;
+                var style = window.getComputedStyle(event.target, null);
+                event.dataTransfer.setData(
+                        "text/plain",
+                                (parseInt(style.getPropertyValue("left"), 10) - event.clientX)
+                                + ','
+                                + (parseInt(style.getPropertyValue("top"), 10) - event.clientY)
+                );
+            }
+
+            function handle_drop(event) {
+                console.log(event);
+                var offset = event.dataTransfer.getData("text/plain").split(',');
+                var dm = window.drag_item;
+                dm.style.left = (event.clientX + parseInt(offset[0], 10)) + 'px';
+                dm.style.top = (event.clientY + parseInt(offset[1], 10)) + 'px';
+                event.preventDefault();
+                return false;
+            }
+
+            document.body.addEventListener("dragover", do_nothing);
+            document.body.addEventListener("drop", handle_drop, false);
+
+            var boxes = document.getElementsByClassName("box");
+
+            for (i = 0; i < boxes.length; i++) {
+                b = boxes[i];
+                b.setAttribute("draggable", "true");
+                b.addEventListener("dragstart", drag_start, false);
+            }
+
+        }
+        window.addEventListener("load", loaded);
+    </script>
+</head>
+<body>
+<div dropzone="move">
+
+    <div id="b1" class="box">
+        1
+    </div>
+    <div id="b2" class="box">
+        2
+    </div>
+    <div id="b3" class="box">
+        3
+    </div>
+</div>
+</body>
+</html>

@@ -1,20 +1,22 @@
+__author__ = 'kevin'
 import unittest
-import simple_math
+import simple_math_class
 
 
 class TestSimpleMath(unittest.TestCase):
-    def setUp(self):
-        self.sample_list = (1, 3, 4, 9)
+    sample_list = (1, 3, 4, 9)
 
+    def setUp(self):
+        self.sm = simple_math_class.SimpleMath()
 
     def test_add(self):
         expected = 5
-        result = simple_math.add(2, 3)
+        result = self.sm.add(2, 3)
         self.assertEquals(result, expected)
 
     def test_total(self):
         expected = 17
-        result = simple_math.total(self.sample_list)
+        result = self.sm.total(self.sample_list)
         self.assertEquals(result, expected)
 
     def test_total_length(self):
