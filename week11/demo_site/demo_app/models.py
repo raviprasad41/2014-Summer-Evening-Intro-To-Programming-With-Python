@@ -23,4 +23,4 @@ class KeyWord(models.Model):
 
 class Topic(models.Model):
     name = models.CharField(max_length=255)
-    parent = models.ForeignKey(Topic, )
+    # parent = models.ForeignKey(Topic, )

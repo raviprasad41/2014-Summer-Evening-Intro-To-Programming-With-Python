@@ -6,8 +6,7 @@ from django.conf import settings
 
 admin.autodiscover()
 urlpatterns = patterns('',
-                       url(r'^$', TemplateView.as_view(template_name='index.html')),
-                       url(r'^index.html$', TemplateView.as_view(template_name='index.html')),
+                       url(r'^index.html$|^/$|^$', TemplateView.as_view(template_name='index.html')),
                        # Examples:
                        # url(r'^$', 'demo_site.views.home', name='home'),
                        # url(r'^blog/', include('blog.urls')),

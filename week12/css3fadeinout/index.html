@@ -6,19 +6,18 @@
     <style>
         h1 span {
             opacity: 0;
-            transition: all 3s ease;
-
+            transition: all 800ms ease-in-out;
         }
+
         h1 span.selected,
-        h1:hover span  {
+        h1:hover span {
             opacity: 1;
-            transition: all 3s ease;
         }
     </style>
     <script>
-        function fade(){
+        function fade() {
             var spans = document.getElementsByTagName("span");
-            for(var i =0; i< spans.length; i++){
+            for (var i = 0; i < spans.length; i++) {
                 var span = spans[i];
                 span.classList.remove("selected");
             }
@@ -35,7 +34,7 @@
 </h1>
 
 <h1>
-    C <span  class="selected">CANDY</span>
+    C <span class="selected">CANDY</span>
 </h1>
 <button onclick="fade()">Fade</button>
 </body>
