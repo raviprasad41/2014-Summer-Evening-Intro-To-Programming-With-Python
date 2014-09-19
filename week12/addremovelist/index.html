@@ -109,7 +109,7 @@
                 console.log("remove");
                 console.log(event);
                 event.target.parentElement.classList.add("transitional");
-                setTimeout(event.target.parentElement.remove,3000);
+                setTimeout(event.target.parentElement.remove, 3000);
             }
 
             return {
@@ -127,15 +127,20 @@
     </script>
 </head>
 <body>
+
 <div id="list" class="list">
+
     <div id="item-template" class="item template">
         <span class="name" contenteditable="true">Item Template</span>
         <span class="remove">[ X ]</span>
         <span class="insert">[ + ]</span>
     </div>
+
     <div class="item add" onclick="CC.ItemList.append();">
         <span class="name">Add Item</span>
     </div>
+
 </div>
+
 </body>
 </html>

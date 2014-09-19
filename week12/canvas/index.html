@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <canvas id="myCanvas" width="960" height="480" style="border: 1px solid black"></canvas>
+    <script>
+      var scale = 4;
+      var step = 70;
+
+      var data = [
+          {
+              'name':'JAN',
+              'amount':44
+          },
+          {
+              'name':'FEB',
+              'amount':22
+          },
+          {
+              'name':'MAR',
+              'amount':93
+          },
+          {
+              'name':'APR',
+              'amount':50
+          },
+          {
+              'name':'JAN',
+              'amount':44
+          },
+          {
+              'name':'FEB',
+              'amount':22
+          },
+          {
+              'name':'MAR',
+              'amount':93
+          },
+          {
+              'name':'APR',
+              'amount':50
+          },
+          {
+              'name':'JAN',
+              'amount':44
+          },
+          {
+              'name':'FEB',
+              'amount':22
+          },
+          {
+              'name':'MAR',
+              'amount':93
+          },
+          {
+              'name':'APR',
+              'amount':50
+          },
+      ];
+      var canvas = document.getElementById('myCanvas');
+      var context = canvas.getContext('2d');
+
+      context.beginPath();
+      context.moveTo(0, data[0] * scale);
+
+      function drawSegment(element, index, array){
+          var x = index * step;
+          var y = element.amount * scale;
+          console.log(x + "," + y)
+          context.lineTo(x, y);
+      }
+
+      data.forEach(drawSegment);
+
+      context.stroke();
+    </script>
+</body>
+</html>
