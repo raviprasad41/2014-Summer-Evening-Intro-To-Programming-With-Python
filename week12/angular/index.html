@@ -1,11 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="demo_app">
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+    <script src="angular.js"></script>
+    <script>
+        var demo_app = angular.module('demo_app', []);
+        demo_app.controller(
+                'PhoneListCtrl',
+                [
+                    '$scope',
+                    '$http',
+                    function ($scope, $http) {
+                        window.phone_scope = $scope;
+                        $http.get('data.json').success(function (data) {
+                            $scope.phones = data;
+                        });
+                    }
+                ]
+        );
+    </script>
 </head>
 <body>
-
+<body ng-controller="PhoneListCtrl">
+<ul>
+    <li ng-repeat="phone in phones">
+        <span>
+           Name: {{phone.name}}
+        </span>
+        <br>
+        <span>
+           Number: {{phone.number}}
+        </span>
+        <br>
+        <br>
+    </li>
+</ul>
 </body>
 </html>
