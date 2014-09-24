@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        var data = [
+            {"id": 1, "name": "apple", "type": "fruit"},
+            {"id": 2, "name": "orange", "type": "fruit"},
+            {"id": 3, "name": "rock", "type": "mineral"},
+            {"id": 4, "name": "crystal", "type": "mineral"},
+            {"id": 5, "name": "peach", "type": "fruit"},
+            {"id": 6, "name": "bear", "type": "animal"},
+            {"id": 7, "name": "brocolli", "type": "vegetable"},
+            {"id": 8, "name": "cabbage", "type": "vegetable"},
+        ];
+        function drawResults() {
+
+        }
+        function apply() {
+            //TODO apply filter
+        }
+    </script>
+</head>
+<body onload="drawResults()">
+<input type="checkbox" id="fruit"><label for="fruit">Fruit</label>
+<input type="checkbox" id="vegetable"><label for="fruit">Vegetable</label>
+<input type="checkbox" id="all"><label for="fruit">All</label>
+<button onclick="apply()"></button>
+<div id="results">
+    <!-- RESULTS -->
+</div>
+</body>
+</html>
