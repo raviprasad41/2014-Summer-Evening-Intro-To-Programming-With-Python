@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        function handleSubmit(){
+            var target = document.getElementById("target");
+            var first = document.getElementById("first_name").value;
+            var last = document.getElementById("last_name").value;
+            var full_name = first + " " + last;
+            target.innerHTML = full_name;
+            // TODO do some fancy AJAX Request behind the scenes without the full page refresh
+            return false;
+        }
+    </script>
+</head>
+<body>
+<form onsubmit="return handleSubmit()">
+    <input id="first_name" value="" placeholder="First Name">
+    <input id="last_name" value="" placeholder="Last Name">
+    <input type="submit" value="Apply">
+</form>
+<div id="target">
+ZZZ
+</div>
+</body>
+</html>
